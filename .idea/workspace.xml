@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cba75f79-a8f2-4fb5-bbcc-73a1304c738e" name="Default Changelist" comment="Добавление файлов">
-      <change beforePath="$PROJECT_DIR$/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.html" beforeDir="false" afterPath="$PROJECT_DIR$/2.html" afterDir="false" />
-    </list>
+    <list default="true" id="cba75f79-a8f2-4fb5-bbcc-73a1304c738e" name="Default Changelist" comment="Изменение файлов" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,7 +41,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1600684722520</updated>
-      <workItem from="1600684723831" duration="1836000" />
+      <workItem from="1600684723831" duration="1911000" />
     </task>
     <task id="LOCAL-00001" summary="Создание репозитория">
       <created>1600685285482</created>
@@ -88,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600685951744</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Изменение файлов">
+      <created>1600688363545</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1600688363545</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -97,7 +101,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Создание репозитория" />
     <MESSAGE value="Добавление файлов" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавление файлов" />
+    <MESSAGE value="Изменение файлов" />
+    <option name="LAST_COMMIT_MESSAGE" value="Изменение файлов" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600685031504">
@@ -108,9 +113,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1600685194793" />
-    <state x="361" y="132" key="Vcs.Push.Dialog.v2" timestamp="1600685974606">
+    <state x="361" y="132" key="Vcs.Push.Dialog.v2" timestamp="1600688402420">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1600685974606" />
+    <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1600688402420" />
   </component>
 </project>
