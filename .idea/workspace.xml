@@ -19,14 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c386c062-d430-486a-a543-8e2301956931" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/1.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-    </list>
+    <list default="true" id="c386c062-d430-486a-a543-8e2301956931" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,8 +55,16 @@
       <option name="presentableId" value="Default" />
       <updated>1600870344163</updated>
       <workItem from="1600870357701" duration="547000" />
-      <workItem from="1600871986633" duration="1530000" />
+      <workItem from="1600871986633" duration="1897000" />
     </task>
+    <task id="LOCAL-00001" summary="Изменение файлов">
+      <created>1600873892611</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600873892611</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -80,6 +81,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Изменение файлов" />
+    <option name="LAST_COMMIT_MESSAGE" value="Изменение файлов" />
   </component>
   <component name="WindowStateProjectService">
     <state x="549" y="153" key="FileChooserDialogImpl" timestamp="1600870893157">
