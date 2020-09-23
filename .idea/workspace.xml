@@ -55,7 +55,7 @@
       <option name="presentableId" value="Default" />
       <updated>1600870344163</updated>
       <workItem from="1600870357701" duration="547000" />
-      <workItem from="1600871986633" duration="1897000" />
+      <workItem from="1600871986633" duration="2265000" />
     </task>
     <task id="LOCAL-00001" summary="Изменение файлов">
       <created>1600873892611</created>
@@ -64,7 +64,21 @@
       <option name="project" value="LOCAL" />
       <updated>1600873892611</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Изменение файлов">
+      <created>1600873989843</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1600873989843</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Изменение файлов">
+      <created>1600874166358</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1600874166358</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,5 +109,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="335" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1600872052568" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1600874175458">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1600874175458" />
   </component>
 </project>
