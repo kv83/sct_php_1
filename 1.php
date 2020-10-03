@@ -1,7 +1,5 @@
 <?php
     $name = 'Переходы через IF';
-    $page2 = '2.php';
-    $page3 = '3.php';
     $page = '1';
     ?>
     <doctype html>
@@ -14,18 +12,17 @@
         <?php
         $int=0;
             if ($int>=0) {
-                echo ('Число положительное</br></br>');
-            }
-            else {
-            echo ('Число отрицательное</br></br>');}
-                if ($a=$page)
-                $a = ('Вы на странице '. $page);
-                echo "<strong>$a</strong>";
+                echo 'Число положительное</br></br>';}
+            if ($int<0) {
+                echo 'Число отрицательное</br></br>';}
         ?>
             <ul>
-            <li><a href="<?= "$page2" ?>">Перейти на страницу 2</a></li></br>
-            <li><a href="<?= "$page3" ?>">Перейти на страницу 3</a></li>
+                <?php
+                    if ($page=1) {
+                            echo '<b><li><a href="1.php">Страница1</a></li></br></b>';
+                            echo '<li><a href="2.php">Страница2</a></li></br>';
+                            echo '<li><a href="3.php">Страница3</a></li></br>';}
+                ?>
             </ul>
         </body>
         </html>
-
