@@ -22,12 +22,33 @@ $page = '3';
             echo ('Переменная b = '. $b. ' равна переменной c= ' .$c .'. Разность данных чисел = 0 </br></br>');}
     ?>
     <ul>
-        <?php
-        if ($page=3) {
-            echo '<li><a href="1.php">Страница1</a></li></br>';
-            echo '<li><a href="2.php">Страница2</a></li></br>';
-            echo '<b><li><a href="3.php">Страница3</a></li></br></b>';}
-        ?>
+        <li>
+        <?php if ($page==1) { ?>
+            <b>
+                <?php }?>
+                            <a href="1.php">Страница1</a>
+                            <?php if ($page==1) { ?>
+            </b>
+            <?php } ?>
+        </li>
+        <li>
+            <?php if ($page==2) { ?>
+            <b>
+                <?php }?>
+                <a href="2.php">Страница2</a>
+                <?php if ($page==2) { ?>
+            </b>
+        <?php } ?>
+        </li>
+        <li>
+            <?php if ($page==3) { ?>
+            <b>
+                <?php }?>
+                <a href="3.php">Страница3</a>
+                <?php if ($page==3) { ?>
+            </b>
+        <?php } ?>
+        </li>
     </ul>
     </body>
     </html>
