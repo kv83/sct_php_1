@@ -2,7 +2,7 @@
 $name = 'IF';
 $a = 130;
 $b = 100;
-$operation = multiply;
+$operation ='divide';
 $isAvailableCalculation = true;
 ?>
 <doctype html>
@@ -12,50 +12,60 @@ $isAvailableCalculation = true;
     </head>
     <body>
     <? echo "<h2> $name </h2>";?>
-    <form>
-        <select>
-            <?php
-            if ($operation == add and $isAvailableCalculation) {
-                echo '<div><option value="Сложение">Сложение</option></div>
-                <option value="Вычитание">Вычитание</option>
-                <option value="Умножение">Умножение</option>
-                <option value="Деление">Деление</option>';
-            }
-            if ($operation == subtract and $isAvailableCalculation ) {
-                echo '<option value="Вычитание">Вычитание</option>
-                <option value="Сложение">Сложение</option>
-                <option value="Умножение">Умножение</option>
-                <option value="Деление">Деление</option>';
-            }
-            if ($operation == multiply and $isAvailableCalculation ) {
-                echo '<option value="Умножение">Умножение</option>
-                <option value="Сложение">Сложение</option>
-                <option value="Вычитание">Вычитание</option>
-                <option value="Деление">Деление</option>';
-            }
-            if ($operation == divide and $isAvailableCalculation ) {
-                echo '<option value="Деление">Деление</option>
-                <option value="Сложение">Сложение</option>
-                <option value="Вычитание">Вычитание</option>
-                <option value="Умножение">Умножение</option>';
-            }
-            ?>
-        </select>
-    </form>
     <?php
-    if ($operation == add and $isAvailableCalculation) {
+    if ($operation == 'add' and $isAvailableCalculation) {
         echo 'Суммой чисел a= '. $a . ' и b= ' . $b . ' является число = '. $c=$a+$b;
     }
-    if ($operation == subtract and $isAvailableCalculation ) {
+    if ($operation == 'subtract' and $isAvailableCalculation ) {
         echo 'Результатом вычитания чисел a= '. $a . ' и b= ' . $b . ' является число = '. $c=$a-$b;
     }
-    if ($operation == multiply and $isAvailableCalculation) {
+    if ($operation == 'multiply' and $isAvailableCalculation) {
         echo 'Произведением чисел a= '. $a . ' и b= ' . $b . ' является число = '. $c=$a*$b;
     }
-    if ($operation == divide and $isAvailableCalculation) {
+    if ($operation == 'divide' and $isAvailableCalculation) {
         echo 'Частным чисел a= '. $a . ' и b= ' . $b . ' является число = '. $c=$a/$b;
     }
     ?>
+    <form>
+        <select>
+            <?php if ($operation == 'add' && $isAvailableCalculation) { ?>
+                        <option selected value="+"> + </option>
+                        <?php
+                        }
+                        else {?>
+                        <option value="+">+</option>
+                        <?php
+                        }
+                        ?>
+            <?php if ($operation == 'subtract' and $isAvailableCalculation ){ ?>
+                    <option selected value="-">-</option>
+                    <?php
+                    }
+                    else { ?>
+                    <option value="-">-</option>
+                    <?php
+                    }
+                    ?>
+            <?php if ($operation == 'multiply' and $isAvailableCalculation ) { ?>
+                    <option value="*" selected> * </option>
+                    <?php
+                    }
+                    else { ?>
+                        <option value="*">*</option>
+                    <?php
+                    }
+                    ?>
+            <?php if ($operation == 'divide' and $isAvailableCalculation ) { ?>
+                    <option selected value="/">/</option>
+                    <?php
+                    }
+                    else { ?>
+                    <option value="/">/</option>
+                    <?php
+                    }
+                    ?>
+        </select>
+    </form>
     </body>
     </html>
 
