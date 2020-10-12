@@ -1,60 +1,20 @@
 <html>
 <body>
 <?php
-/*$x
-$c = empty ($x);
-var_dump($c);
-var $x
-$c = empty ($x);
-var_dump($c);*/
-$x = null;
-$c = empty ($x);
-var_dump($c);
-$x = "";
-$c = empty ($x);
-var_dump($c);
-$x = array();
-$c = empty ($x);
-var_dump($c);
-
-$x = array('a', 'b');
-$c = empty ($x);
-var_dump($c);
-$x =false;
-$c = empty ($x);
-var_dump($c);
-$x =true;
-$c = empty ($x);
-var_dump($c);
-$x =  1;
-$c = empty ($x);
-var_dump($c);
-$x = 42;
-$c = empty ($x);
-var_dump($c);
-$x = 0;
-$c = empty ($x);
-var_dump($c);
-$x = -1;
-$c = empty ($x);
-var_dump($c);
-$x ="1";
-$c = empty ($x);
-var_dump($c);
-$x = "0";
-$c = empty ($x);
-var_dump($c);
-$x = "-1";
-$c = empty ($x);
-var_dump($c);
-$x = "php";
-$c = empty ($x);
-var_dump($c);
-$x ="true";
-$c = empty ($x);
-var_dump($c);
-$x = "false";
-$c = empty ($x);
-var_dump($c);
-?>
-
+$x1=rand(-100, 100);
+$x2=rand(-100, 100);
+    if ($x1>=0 and $x2>=0) {
+        echo('Обе переменные положительные: x1= ' . $x1 . ', x2= ' . $x2);
+    }
+    if ($x1<0 and $x2<0) {
+        echo('Обе переменные отрицательные: x1= ' . $x1 . ', x2= ' . $x2);
+    }
+        elseif ($x1>=0 and $x2<0) {
+            echo ('Переменные неравнозначны : x1= '.$x1.', x2= '.$x2);
+    }
+        elseif ($x1<0 and $x2>=0) {
+            echo ('Переменные неравнозначны : x1= '.$x1.', x2= '.$x2);
+        }
+        ?>
+</body>
+</html>
