@@ -1,7 +1,5 @@
-<html>
-<body>
 <?php
-function letText($age, array $text)
+function letText($name, $age, array $text, $address)
 {
     $f = array($age % 10, $age % 100);
     if($f[1] > 10 && $f[1] < 20) {
@@ -13,8 +11,8 @@ function letText($age, array $text)
     }
     return $text[2];
 }
-$age = 51;
-echo  $age, ' ', letText($age, array('год', 'года', 'лет'));
+$name = ' Пётр ';
+$age = 50;
+$address = ' Москва, ул.Академика Королёва, 12 ';
+echo $name, $age, ' ', letText($name, $age, array('год,', 'года,', 'лет,'), $address), $address;
 ?>
-</body>
-</html>
