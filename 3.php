@@ -15,27 +15,26 @@ $b = intval($_POST['b']);
 $c = $_POST['c'];
 function result($a,$b,$c)
 {
-    global $getResult;
     if($c == '+')
     {
-        $getResult = $a+$b;
+        echo $getResult = $a+$b;
     }
     elseif($c == '-')
     {
-        $getResult = $a-$b;
+        echo $getResult = $a-$b;
     }
     elseif($c == '*')
     {
-        $getResult = $a*$b;
+        echo $getResult = $a*$b;
     }
     elseif($c == '/' and $b!==0)
     {
-        $getResult = $a/$b;
+        echo $getResult = $a/$b;
     } else
         {
         echo "значение равно 0.";
     }
 }
 result($a,$b,$c);
-echo $getResult."<br>";
+echo " = $a $c $b $getResult"."<br>";
 ?>
