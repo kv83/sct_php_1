@@ -1,8 +1,5 @@
 <?php
-$a = 5;
-$b = 10;
-$n = 'chastnoe';
-function result($n,$a,$b)
+function result($n, $a, $b )
 {
     if ($n == 'summa') {
         echo $getResult = $a + $b;
@@ -15,7 +12,7 @@ function result($n,$a,$b)
     } else {
         echo "Делитель равен 0.";
     }
+    echo " {$n} {$a} {$b} ";
 }
-    result($n,$a,$b);
-    echo " {$n} {$a} {$b}";
-?>
+    result('chastnoe',5,10);
+
