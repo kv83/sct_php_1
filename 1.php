@@ -14,42 +14,32 @@
  */
 function letText($name, $age, $address)
 {
-    if ($age !=='')
-    {
-        if ($age % 10 == 0)
-        {
+    if ($age !=='') {
+        if ($age % 10 == 0) {
             $text = 'лет';
         }
-        if ($age % 10 == 1)
-        {
+        if ($age % 10 == 1) {
             $text = 'год';
         }
-        elseif ($age % 10 > 1 && $age % 10 < 5)
-        {
+        elseif ($age % 10 > 1 && $age % 10 < 5) {
             $text = 'года';
         }
-        else if ($age % 10 > 4 && $age % 10 < 21)
-        {
+        else if ($age % 10 > 4 && $age % 10 < 21) {
             $text = 'лет';
         }
         echo "$name $address $age $text";
     }
-    elseif ($age ==='')
-        {
-        echo "$name $address";
+    elseif ($age ==='') {
+        return "$name $address";
         }
-    elseif ($name ==='')
-        {
+    elseif ($name ==='') {
         return "$age $address";
-        echo "$age $address $text";
     }
-    elseif ($address ==='')
-        {
+    elseif ($address ==='') {
         return "$name $age";
-        echo "$name $age";
     }
 }
-letText('Иван', '78', ' Усть-Каменогорск, пр.Мира 36');
+echo letText('Иван', '77', ' Усть-Каменогорск, пр.Мира 36');
 ?>
 </body>
 </html>
