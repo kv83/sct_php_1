@@ -1,31 +1,55 @@
 <!doctype html>
 <html>
 <head>
-    <title>Функции </title>
+    <title>Функции</title>
 </head>
 <body>
 <?php
-/*** Функция выводит информацию о человеке.
- * @param string $name имя человека
- * @param int $age возраст
- * @param string $address место проживания
+/**
+ * Функция вывода данных о человеке
+ * @param string  $name пока данный параметр не введён, то имя не отображается
+ * @param int $age пока параметр возраст не введён, то не отображается
+ * @param string $address пока параметр адрес не введён, то не отображается
  * @return string
  */
-function human ($name, $age = 35, $address = 'homeless')
-{ if ($age==true && $address==true)
+function letText($name, $age, $address)
+{
+    if ($age !=='')
+    {
+        if ($age % 10 == 0)
         {
-            return "{$name}, {$age}, {$address}";
+            $text = 'лет';
         }
-        elseif ($age==false)
+        if ($age % 10 == 1)
         {
-            return "$name, $address";
+            $text = 'год';
         }
-        elseif ($address==false)
+        elseif ($age % 10 > 1 && $age % 10 < 5)
         {
-            return "$name $age";
+            $text = 'года';
         }
+        else if ($age % 10 > 4 && $age % 10 < 21)
+        {
+            $text = 'лет';
+        }
+        echo "$name $address $age $text";
+    }
+    elseif ($age ==='')
+        {
+        echo "$name $address";
+        }
+    elseif ($name ==='')
+        {
+        return "$age $address";
+        echo "$age $address $text";
+    }
+    elseif ($address ==='')
+        {
+        return "$name $age";
+        echo "$name $age";
+    }
 }
-echo human ('Алёна', '37', ' г.Астрахань ');
+letText('Иван', '78', ' Усть-Каменогорск, пр.Мира 36');
 ?>
 </body>
 </html>
