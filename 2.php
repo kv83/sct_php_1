@@ -5,14 +5,7 @@
 </head>
 <body>
 <?php
-/**
- * Проверка минимального числа
- * @param int $a первое число
- * @param int $b второе число
- * @param null $c необязательный параметр
- * @return int
- */
-function result($a, $b,$c=null)
+function result($a, $b,$c="")
 {
     if ($a!=='' && $a!==null and $a <= $b and $a <= $c ) {
         return (int) $a;

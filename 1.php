@@ -12,7 +12,7 @@
  * @param string $address пока параметр адрес не введён, то не отображается
  * @return string
  */
-function letText($name, $age, $address)
+function letText($name, $age="", $address="")
 {
     if ($age !=='') {
         if ($age % 10 == 0) {
