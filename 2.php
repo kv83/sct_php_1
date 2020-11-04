@@ -1,20 +1,30 @@
 <!doctype html>
 <html>
 <head>
-    <title> Функции 2 </title>
+    <title>Функции</title>
 </head>
 <body>
 <?php
+$a=0;
 function test()
-    {
-        static $a = 0;
-        return ++$a;
+{
+    static $a;
+    if (($a+1) == 1) {
+        $text = ' раз ';
+    } elseif (($a+1)  >= 2 && ($a+1) <= 4) {
+        $text = ' раза ';
+    } else if (($a+1) >= 5 && ($a+1)< 22) {
+        $text = ' раз ';
     }
-echo 'Функция вызвана '.test().' раз. <br>';
-echo 'Функция вызвана '.test().' раз. <br>';
-echo 'Функция вызвана '.test().' раз. <br>';
-echo 'Функция вызвана '.test().' раз. <br>';
+    echo $text ;
+    return ++$a;
+}
+echo test().'<br>';
+echo test().'<br>';
+echo test().'<br>';
+echo test().'<br>';
+echo test().'<br>';
+echo test().'<br>';
 ?>
 </body>
 </html>
-
