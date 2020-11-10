@@ -1,26 +1,26 @@
-<!doctype html>
-<html>
-<head>
-    <title> Функции 3 </title>
-</head>
-<body>
 <?php
-$a=40;
-$b=10;
-    echo "Первоначальная температура = $a<br>";
-    function up(&$a, $b)
-    {
-        $a = $a + $b;
-        echo "Температура повысилась на $b  и стала равна $a. <br>";
-    } function down(&$a, $b) {
-        $a = $a - $b;
-        echo "Температура понизилась на $b и стала равна $a. <br>";
-    }
-down ($a,$b);
-down ($a, $b);
-down ($a, $b);
-up ($a, $b);
-?>
-</body>
-</html>
-
+function getContent ()
+{
+    $b="<p><html></p><p><head></p><p>&nbsp; &nbsp;<title>{{TITLE}}</title></p><p></head></p><p><body></p>
+    <p><p>&nbsp; &nbsp;{{CONTENT}}</p><p></body></p><p></html></p>";
+    return $b;
+}
+function replaceTitle ()
+{
+    $c =array ("{{TITLE}}" => "LA KUKARACHA");
+    return strtr (getContent(),$c);
+}
+function replaceContent ()
+{
+    $a = array("{{CONTENT}}" => "PATRIO MUERTE");
+    return strtr(getContent(), $a);
+}
+//echo replaceTitle (), replaceContent (); // Закомментил чтобы не мешались несколько выводов функций. Они рабочие.
+function getReplace ($n, $z)
+{
+    if (($n=='title' and $z!=null) or ($n=='content' and $z!=null))
+    return $z;
+    else return null;
+}
+echo getReplace ('title', 'ggggg')
+    ?>
