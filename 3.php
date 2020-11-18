@@ -1,25 +1,24 @@
 <?php
-function getContent ()
-{
-    $b='<p><html></p><p><head></p><p>&nbsp; &nbsp;<title>{{TITLE}}</title></p><p></head></p><p><body></p>
-    <p><p>&nbsp; &nbsp;{{CONTENT}}</p><p></body></p><p></html></p>';
-    return $b;
+    $getContent = '<html>
+        <head>
+        <title>{{TITLE}}</title>
+        </head>
+        <body>
+        {{CONTENT}}
+        </body>
+        </html>';
+    $value = array('{{TITLE}}'=>'Заголовок','{{CONTENT}}'=>'Контент');
+    getReplace($value, array(&$getContent));
+    function getReplace($array,$text){
+        if(!is_array($text))
+        {
+            $text=array();
+            $text[]=&$text;
+    }
+    for($l = count($text ); $l--;)
+    foreach($array as $k=>$val)
+    {
+    $text[$l] = str_replace ($k, $val, $text[$l]);
 }
-function replaceTitle ()
-{
-    $c =array ("{{TITLE}}" => "LA KUKARACHA");
-    return strtr (getContent(),$c);
 }
-function replaceContent ()
-{
-    $a = array("{{CONTENT}}" => "PATRIO MUERTE");
-    return strtr(getContent(), $a);
-}
-echo replaceTitle (), replaceContent ();
-function getReplace ($n, $z)
-{
-    if (($n=='title' and $z!=null) or ($n=='content' and $z!=null))
-    return $z;
-    return null;
-}
-echo getReplace ('title', 'ggggg');
+echo $getContent;
