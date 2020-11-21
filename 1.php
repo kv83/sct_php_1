@@ -1,12 +1,21 @@
 <!doctype html>
 <html>
 <head>
-    <title>Функции</title>
+    <title>Циклы</title>
 </head>
 <body>
 <?php
-    $date = "2020-01-28";
-    echo date("d.m.Y", strtotime($date));
+    function vozvrat ($a, $b)
+    {
+        while ($a > $b) {
+            echo $b++. '<br>';
+        }
+        while ($a < $b) {
+            echo $a++. '<br>';
+        }
+        echo 'Числа равны';
+    }
+        echo vozvrat (12,12);
 ?>
 </body>
 </html>

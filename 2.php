@@ -1,26 +1,27 @@
 <!doctype html>
 <html>
 <head>
-    <title>Функции 2</title>
+    <title>Циклы 2</title>
 </head>
 <body>
 <?php
-function mb_ucfirst($string, $enc = 'UTF-8')
+function vozvrat ()
 {
-    return mb_strtoupper(mb_substr($string, 0, 1, $enc), $enc) .
-        mb_substr($string, 1, mb_strlen($string, $enc), $enc);
+    $a=0;
+    while ($a<=10) {
+        if ($a%2==0 && $a!=0) {
+            echo $a.' - Число чётное <br>';
+        }
+        if ($a%2!=0){
+            echo $a.' - Число нечётное <br>';
+        }
+        if ($a==0){
+            echo $a.' - Тоже чётное число<br>';
+        }
+        $a++;
+    }
 }
-    $str = "пРИВЕТ DBV МИР!";
-    $str = mb_ucfirst(mb_strtolower($str));
-    $a =array (" " => "_");
-        if ($str[strlen($str) - 1] == '.' or $str[strlen($str)-1] == '!'
-        or $str[strlen($str) - 1] == ',' or $str[strlen($str) - 1] == '?')
-{
-    echo strtr ($str, $a);
-}  else {
-    $str = trim($str) . ".";
-    echo strtr ($str, $a);
-}
+echo vozvrat ();
 ?>
 </body>
 </html>
