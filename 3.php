@@ -1,4 +1,9 @@
+<!doctype html>
+<html>
+<head>
 <title>Таблицы</title>
+</head>
+<body>
 <table width="700" style="border: 1px dotted">
     <tr>
         <th>№ </th>
@@ -36,3 +41,5 @@
         <col style="background-color:LightGray">
     </colgroup>
 </table>
+</body>
+</html>

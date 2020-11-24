@@ -5,17 +5,24 @@
 </head>
 <body>
 <?php
-    function vozvrat ($a, $b)
+    function vozvrat ()
     {
+        $a=20;
+        $b=12;
+        if ($a==$b) {
+            echo 'Числа равны ';
+        }
         while ($a > $b) {
             echo $b++. '<br>';
         }
         while ($a < $b) {
             echo $a++. '<br>';
+            }
+        if ($a=$b) {
+            echo $b;
         }
-        echo 'Числа равны';
     }
-        echo vozvrat (12,12);
+    vozvrat ();
 ?>
 </body>
 </html>

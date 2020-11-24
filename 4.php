@@ -1,4 +1,9 @@
+<!doctype html>
+<html>
+<head>
 <title>Таблица умножения</title>
+</head>
+<body>
 <?php
 function umnozh ()
 {
@@ -13,4 +18,7 @@ function umnozh ()
     }
     echo "</table>";
 }
-echo umnozh ();
+umnozh ();
+?>
+</body>
+</html>
