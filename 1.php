@@ -7,16 +7,18 @@
 <?php
     function vozvrat ()
     {
-        $a=20;
+        $a=12;
         $b=12;
         if ($a==$b) {
             echo 'Числа равны ';
         }
         while ($a > $b) {
             echo $b++. '<br>';
+            if ($a==$b) break;
         }
         while ($a < $b) {
             echo $a++. '<br>';
+            if ($a==$b) break;
             }
         if ($a=$b) {
             echo $b;
