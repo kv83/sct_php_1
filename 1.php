@@ -5,28 +5,23 @@
 </head>
 <body>
 <?php
-function vozvrat ()
+function vozvrat ($a, $b)
 {
-    $a=20;
-    $b=20;
     while ($a==$b){
-        echo 'Числа равны';
-        exit;
+        return 'Числа равны';
     }
     while ($a > $b) {
         echo $b++. '<br>';
         if ($a==$b)
-            echo $a;
-        if ($a<$b) exit;
+            return $a;
     }
     while ($a < $b) {
         echo $a++. '<br>';
         if ($a==$b)
-            echo $b;
-        if ($a>$b) exit;
+            return $b;
     }
 }
-vozvrat ();
+echo vozvrat (40,30);
 ?>
 </body>
 </html>
