@@ -14,7 +14,7 @@ function vozvrat($a, $b) {
     sort($arr);
     echo implode(' ', $arr);
 }
-vozvrat(12,2) // По-моему проще некуда
+vozvrat(12,2); // По-моему проще некуда
 ?>
 </body>
 </html>
