@@ -6,15 +6,15 @@
 <body>
 <?php
 $tovar = [
-        'phone' => ['nokia 3110', 'motorola e5', 'meizu 8'],
-        'furniture' => ['divan', 'stol', 'stul'],
-        'auto' => ['toplivo', 'antifriz', 'maslo']
+        'Телефон' => ['радиотелефон', 'кнопочный', 'дисковый'],
+        'Мебель' => ['диван', 'стол', 'стул'],
+        'Автотовары' => ['топливо', 'антифриз', 'масло']
 ];
     foreach ($tovar as $key=>$value){
         if (is_array($value)){
-            echo $key.' => <br>';
+            echo '<br> Каталог: '.$key.'  <br> Товары в каталоге: ';
             foreach ($value as $value1) {
-               echo $value1.'<br>';
+               echo $value1.', ';
            }
         }
 }
