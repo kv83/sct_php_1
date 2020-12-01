@@ -1,27 +1,20 @@
 <!doctype html>
 <html>
 <head>
-    <title>Циклы</title>
+    <title>Решение</title>
 </head>
 <body>
 <?php
-function vozvrat ($a, $b)
-{
-    while ($a==$b){
-        return 'Числа равны';
+function vozvrat($a, $b) {
+    if($a === $b) {
+        echo 'Числа равны';
+        return;
     }
-    while ($a > $b) {
-        echo $b++. '<br>';
-        if ($a==$b)
-            return $a;
-    }
-    while ($a < $b) {
-        echo $a++. '<br>';
-        if ($a==$b)
-            return $b;
-    }
+    $arr = range($a, $b);
+    sort($arr);
+    echo implode(' ', $arr);
 }
-echo vozvrat (40,30);
+vozvrat(12,2) // По-моему проще некуда
 ?>
 </body>
 </html>
