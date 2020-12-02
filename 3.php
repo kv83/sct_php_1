@@ -13,9 +13,8 @@ $tovar = [
     foreach ($tovar as $key=>$value){
         if (is_array($value)){
             echo '<br> Каталог: '.$key.'  <br> Товары в каталоге: ';
-            foreach ($value as $value1) {
-               echo $value1.', ';
-           }
+            $str = trim(implode(', ',$value)) . ".";
+            echo $str;
         }
 }
 ?>
