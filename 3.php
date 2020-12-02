@@ -1,22 +1,17 @@
 <!doctype html>
 <html>
 <head>
-    <title>Массивы 2</title>
+    <title>JSON</title>
 </head>
 <body>
 <?php
-$tovar = [
-        'Телефон' => ['радиотелефон', 'кнопочный', 'дисковый'],
-        'Мебель' => ['диван', 'стол', 'стул'],
-        'Автотовары' => ['топливо', 'антифриз', 'масло']
-];
-    foreach ($tovar as $key=>$value){
-        if (is_array($value)){
-            echo '<br> Каталог: '.$key.'  <br> Товары в каталоге: ';
-            $str = trim(implode(', ',$value)) . ".";
-            echo $str;
-        }
-}
+    $json = (["89050506568", "89050506545", "335566"]);
+    $array2 = json_encode($json);
+    $array = json_decode($array2);
+    print('<pre>');
+    print_r($array);
+    print_r($array2);
+    print('</pre>');
 ?>
 </body>
 </html>

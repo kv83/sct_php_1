@@ -1,22 +1,39 @@
 <!doctype html>
 <html>
 <head>
-    <title>Массивы 1</title>
+    <title>Сортировка массивов 2</title>
 </head>
 <body>
-<ul>
 <?php
-    $news = [];
-    $news ['Бой Тайсона и Джонса'] = 'https://sportmail.ru/news/boxing/44340148/?frommail=1';
-    $news ['Биография Майка Тайсона'] = 'https://ru.wikipedia.org/wiki/Тайсон,_Майк';
-    $news ['Биография Роя Джонса'] = 'https://ru.wikipedia.org/wiki/Джонс,_Рой';
-    $news ['Чем зимние автомобильные дворники отличаются от летних?'] = 'https://auto.mail.ru/article/79716-chem_zimnie_avtomobilnye_dvorniki_otlichayutsya_ot_letnih/';
-    $news ['История изобретения стеклоочистителя. "Дворники."'] = 'https://bwiper.ru/kak-poyavilis-dvorniki-istoriya-stekloochistitelya';
-    $news ['История создания щеток стеклоочистителя'] = 'https://chistoe-steklo.ru/articles/istoriya-sozdaniya-shchetok-stekloochistitelya';
-    foreach ($news as $key => $value) {
-        echo "<li><a href = $value target=_blank> $key </a></li>";
-    }
+$massiv = [
+    [
+        'name' => 'Стул 1',
+        'price' => 20,
+        'category' => 1
+    ],
+    [
+        'name' => 'Стул 2',
+        'price' => 210,
+        'category' => 2
+    ],
+    [
+        'name' => 'Стул 3',
+        'price' => 15,
+        'category' => 2
+    ],
+    [
+        'name' => 'Стул 4',
+        'price' => 5,
+        'category' => 2
+    ]
+];
+function vozrastanie($a, $b){
+    return ($a['price'] > $b['price']);
+}
+uasort($massiv, 'vozrastanie');
+print('<pre>');
+print_r($massiv);
+print('</pre>');
     ?>
-</ul>
 </body>
 </html>
