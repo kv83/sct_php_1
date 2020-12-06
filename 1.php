@@ -1,20 +1,32 @@
 <!doctype html>
 <html>
 <head>
-    <title> Сортировка массивов </title>
+    <title> Передача данных </title>
 </head>
 <body>
 <?php
-    $a = [2,5,7,6];
-    $b = [3,2,5,1,9];
-    $arr_1 = array_diff($a, $b);
-    $arr_2 = array_diff($b, $a);
-    asort ($arr_1);
-    asort ($arr_2);
-    $c=implode(', ',$arr_1);
-    $d=implode(', ',$arr_2);
-        echo 'Числа из массива 1, отсутствующие в массиве 2:  ' . $c. '<hr>';
-        echo 'Числа из массива 2, отсутствующие в массиве 1:  ' . $d. '<hr>';
+function getUserData ()
+{
+    {
+        if ($_GET["login"] == true) {
+            echo "Ваш логин: " . $_GET["login"] . "<br>";
+        } elseif ($_GET["login"] == false) {
+            echo "Ваш логин: " . $_GET["login"] . "Данных нет<br>";
+        }
+        if ($_GET["password"] == true) {
+            echo "Ваш пароль: " . $_GET["password"] . "<br>";
+        } elseif ($_GET["password"] == false) {
+            echo "Ваш пароль: " . $_GET["password"] . "Данных нет<br>";
+        }
+        if ($_GET["age"] == true) {
+            echo "Ваш возраст: " . $_GET["age"] . "<br>";
+        } elseif ($_GET["age"] == false) {
+            echo "Ваш возраст: " . $_GET["age"] . "Данных нет<br>";
+        }
+        echo '<a href="/1.php">Очистить</a>';
+    }
+}
+getUserData();
 ?>
 </body>
 </html>
