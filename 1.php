@@ -12,23 +12,23 @@ function getUserData ()
 {
     if ($_GET["login"] == true) {
         echo "Ваш логин: " . $_GET["login"] . "<br>";
-    } elseif ($_GET["login"] == false) {
-        echo "Ваш логин: " . $_GET["login"] . "Данных нет<br>";
+    } else {
+        echo "Ваш логин: Данных нет<br>";
     }
     if ($_GET["password"] == true) {
         echo "Ваш пароль: " . $_GET["password"] . "<br>";
-    } elseif ($_GET["password"] == false) {
-        echo "Ваш пароль: " . $_GET["password"] . "Данных нет<br>";
+    } else {
+        echo "Ваш пароль: Данных нет<br>";
     }
-    if ($_GET["age"] == true) {
+    if ($_GET["age"] == true && is_numeric($_GET["age"])) {
         echo "Ваш возраст: " . $_GET["age"] . "<br>";
-    } elseif ($_GET["age"] == false) {
-        echo "Ваш возраст: " . $_GET["age"] . "Данных нет<br>";
+    } else {
+        echo "Ваш возраст: Данных нет<br>";
     }
-        echo '<a href="/1.php">Очистить</a>';
+    echo '<a href="/1.php">Очистить</a>';
+    echo '<br>Передано методом '.$_SERVER['REQUEST_METHOD'];
 }
 getUserData();
-echo '<br>Передано методом '.$_SERVER['REQUEST_METHOD'];
 ?>
 </body>
 </html>
