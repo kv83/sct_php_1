@@ -4,7 +4,7 @@
     <title>Строка с формой</title>
 </head>
 <body>
-<form action="index.php" method="get">
+<form action="../index.php?page=1" method="get">
     <p><input type="text" name="stroka" /></p>
     <p><input type="submit" /></p>
 </form>
