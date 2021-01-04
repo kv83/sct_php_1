@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 27 2020 г., 17:02
+-- Время создания: Янв 04 2021 г., 14:19
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -24,77 +24,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `изменение статуса заказа`
+-- Структура таблицы `product`
 --
 
-CREATE TABLE `изменение статуса заказа` (
-  `ID` int(11) NOT NULL,
-  `Заказ` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Роль пользователя` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Статус заказа` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `i. Заказан` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ii. Оплачен` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `iii. Отправлен` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `iv. Доставлен` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `изменение товаров на складе`
---
-
-CREATE TABLE `изменение товаров на складе` (
-  `ID` int(11) NOT NULL,
-  `Наименование товара` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Изменить` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Удалить` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Добавить` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Вывести` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `изменение товаров на складе специальными пользователями`
---
-
-CREATE TABLE `изменение товаров на складе специальными пользователями` (
+CREATE TABLE `product` (
   `ID` int(100) NOT NULL,
-  `Наименование товара` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Изменить` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Удалить` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Добавить` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Вывести` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `roles user` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
+  `name` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` int(10) NOT NULL,
+  `info` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `count` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `заказ товара пользователем`
+-- Структура таблицы `users`
 --
 
-CREATE TABLE `заказ товара пользователем` (
-  `ID` int(100) NOT NULL,
-  `Наименование товара` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Количество товара` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Заказать` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `регистрация или авторизация пользователей`
---
-
-CREATE TABLE `регистрация или авторизация пользователей` (
+CREATE TABLE `users` (
   `ID` int(100) NOT NULL,
   `login` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `registered` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `autorised` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
+  `password` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_admin` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `zakaz`
+--
+
+CREATE TABLE `zakaz` (
+  `ID` int(100) NOT NULL,
+  `User_ID` int(100) NOT NULL,
+  `Date` date NOT NULL,
+  `sett` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `status` enum('100') COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -102,33 +67,21 @@ CREATE TABLE `регистрация или авторизация пользо�
 --
 
 --
--- Индексы таблицы `изменение статуса заказа`
+-- Индексы таблицы `product`
 --
-ALTER TABLE `изменение статуса заказа`
+ALTER TABLE `product`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `изменение товаров на складе`
+-- Индексы таблицы `users`
 --
-ALTER TABLE `изменение товаров на складе`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `изменение товаров на складе специальными пользователями`
+-- Индексы таблицы `zakaz`
 --
-ALTER TABLE `изменение товаров на складе специальными пользователями`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Индексы таблицы `заказ товара пользователем`
---
-ALTER TABLE `заказ товара пользователем`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Индексы таблицы `регистрация или авторизация пользователей`
---
-ALTER TABLE `регистрация или авторизация пользователей`
+ALTER TABLE `zakaz`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -136,33 +89,21 @@ ALTER TABLE `регистрация или авторизация пользов
 --
 
 --
--- AUTO_INCREMENT для таблицы `изменение статуса заказа`
+-- AUTO_INCREMENT для таблицы `product`
 --
-ALTER TABLE `изменение статуса заказа`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `изменение товаров на складе`
---
-ALTER TABLE `изменение товаров на складе`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `изменение товаров на складе специальными пользователями`
---
-ALTER TABLE `изменение товаров на складе специальными пользователями`
+ALTER TABLE `product`
   MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `заказ товара пользователем`
+-- AUTO_INCREMENT для таблицы `users`
 --
-ALTER TABLE `заказ товара пользователем`
+ALTER TABLE `users`
   MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `регистрация или авторизация пользователей`
+-- AUTO_INCREMENT для таблицы `zakaz`
 --
-ALTER TABLE `регистрация или авторизация пользователей`
+ALTER TABLE `zakaz`
   MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
