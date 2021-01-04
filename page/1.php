@@ -1,8 +1,3 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <title>Строка с формой</title>
-</head>
 <body>
 <form action="../index.php?page=1" method="get">
     <p><input type="text" name="stroka" /></p>
@@ -14,4 +9,3 @@
     echo str_replace($from, $to, $_GET['stroka']);
 ?>
 </body>
-</html>
