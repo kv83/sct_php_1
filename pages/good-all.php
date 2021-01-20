@@ -1,4 +1,5 @@
 <?php
+function connect () {
 $host = 'localhost';
 $user = 'root';
 $pass = 'root';
@@ -7,12 +8,15 @@ $link = mysqli_connect($host, $user, $pass, $db_name);
 if (!$link) {
     echo 'Не могу соединиться с БД. Код ошибки: ' . mysqli_connect_errno() . ', ошибка: ' . mysqli_connect_error();
     exit;
+} else {
+return $link;
 }
-$sql = mysqli_query($link, 'SELECT id, name, price, info FROM goods');
-while ($result = mysqli_fetch_array($sql)) {
-    echo "Наименование: {$result['name']}: Цена: {$result['price']}  ".
-        '<a href="?page=good-one&id=">Введите ID товара для вывода подробной информации</a>'."<br>";
+}
+$s = mysqli_query(connect(), 'SELECT id, name, price, info FROM goods');
+while ($result = mysqli_fetch_array($s)) {
+    echo "Наименование: {$result['name']}: Цена: {$result['price']}".
+        '<a href="?page=good-one&id=' . $result['id']. '"> Подробнее </a>'."<br>";
 }
 ?>
-<hr><a href="?page=add">Форма добавления товаров на склад</a>
+<hr><a href="?page=add-goods">Форма добавления товаров на склад</a>
 
