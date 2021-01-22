@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Янв 04 2021 г., 14:19
+-- Время создания: Янв 22 2021 г., 19:38
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -24,16 +24,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `product`
+-- Структура таблицы `goods`
 --
 
-CREATE TABLE `product` (
-  `ID` int(100) NOT NULL,
-  `name` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` int(10) NOT NULL,
-  `info` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `count` int(100) NOT NULL
+CREATE TABLE `goods` (
+  `id` int(100) NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `info` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `goods`
+--
+
+INSERT INTO `goods` (`id`, `name`, `info`, `price`) VALUES
+(1, 'Ананас', 'Производитель ЮАР', 100),
+(2, 'Абрикос', 'Производитель КНДР', 90),
+(3, 'Арбуз', 'Производитель Астрахань', 50),
+(4, 'Арахис', 'Производитель Кыргызстан', 40),
+(5, 'Баклажан', 'Производитель Таджикистан', 70),
+(6, 'Барбарис', 'Производитель Узбекистан', 30),
+(7, 'Киви', 'Урюпинск', 60),
+(9, 'Фундук', 'Гуаньчжоу', 99),
+(10, 'Манго', 'Производство Тайланд', 123),
+(11, 'Яблоки', 'Производство Чувашия', 40),
+(12, 'Персики', 'Производство Китай', 79);
 
 -- --------------------------------------------------------
 
@@ -67,10 +83,10 @@ CREATE TABLE `zakaz` (
 --
 
 --
--- Индексы таблицы `product`
+-- Индексы таблицы `goods`
 --
-ALTER TABLE `product`
-  ADD PRIMARY KEY (`ID`);
+ALTER TABLE `goods`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `users`
@@ -89,10 +105,10 @@ ALTER TABLE `zakaz`
 --
 
 --
--- AUTO_INCREMENT для таблицы `product`
+-- AUTO_INCREMENT для таблицы `goods`
 --
-ALTER TABLE `product`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `goods`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
