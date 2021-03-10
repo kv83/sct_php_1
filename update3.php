@@ -2,8 +2,8 @@
 $db_server = "localhost";
 $db_user = "root";
 $db_password = "root";
-$db_name = 'add_sotrudnik';
-$db_table = "dannie";
+$db_name = 'library';
+$db_table = "dannie_sotrudnik";
 try {
     $db = new PDO("mysql:host=$db_server;dbname=$db_name", $db_user, $db_password,array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8"));
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -18,7 +18,7 @@ try {
     if(trim($fio) !== "")   { $update_columns[] = "fio = :fio"; }
     if(trim($dolzhnost) !== ""){ $update_columns[] = "dolzhnost = :dolzhnost"; }
     if(sizeof($update_columns > 0)){
-        $sql = "UPDATE dannie SET " . implode(", ", $update_columns) . " WHERE id=:id";
+        $sql = "UPDATE dannie_sotrudnik SET " . implode(", ", $update_columns) . " WHERE id=:id";
         $statement = $db->prepare($sql);
         $statement->bindParam(":id", $id);
         if(trim($fio) !== ""){
