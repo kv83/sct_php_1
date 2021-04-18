@@ -7,7 +7,7 @@ function sotrudnikLink ()
         $fio = $_POST['fio'];
         $dolzhnost = $_POST['dolzhnost'];
         $db_table = "dannie_sotrudnik";
-        $db_table1 = "log_pass_sotrudnik";
+        $db_table1 = "log_pass";
         $mysqli = new mysqli('localhost', 'root', 'root', 'library');
         if ($mysqli->connect_error) {
             die('Ошибка : (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
@@ -28,7 +28,7 @@ function sotrudnikLink ()
         try {
             $db = new mysqli('localhost', 'root', 'root', 'library');
             $db->set_charset('utf8');
-            $sql = "SELECT log_pass_klient.id, log_pass_klient.login, log_pass_klient.password , dannie_klient.id, dannie_klient.fio, dannie_klient.passport FROM log_pass_klient, dannie_klient where log_pass_klient.id=dannie_klient.id";
+            $sql = "SELECT log_pass.id, log_pass.login, log_pass.password , dannie_klient.log_pass_id, dannie_klient.fio, dannie_klient.passport FROM log_pass, dannie_klient where log_pass.id=dannie_klient.log_pass_id";
             if(!$statement = $db->prepare($sql))
                 throw new Exception($db->error);
             $statement->execute();
@@ -58,7 +58,7 @@ function addKlientLink ()
         $fio = $_POST['fio'];
         $passport = $_POST['passport'];
         $db_table = "dannie_klient";
-        $db_table1 = "log_pass_klient";
+        $db_table1 = "log_pass";
         $mysqli = new mysqli('localhost', 'root', 'root', 'library');
         if ($mysqli->connect_error) {
             die('Ошибка : (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
@@ -79,21 +79,20 @@ function vidachaTable()
     try {
         $db = new mysqli('localhost', 'root', 'root', 'library');
         $db->set_charset('utf8');
-        $sql = "SELECT id, name, author, date, sotrudnik, srok, chitatel FROM vidacha";
+        $sql = "SELECT id, id_book, date, id_sotrudnik, srok, id_chitatel FROM vidacha";
         if(!$statement = $db->prepare($sql))
             throw new Exception($db->error);
             $statement->execute();
             $result_array = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
-        echo "<br><br><table><tr><th>id</th><th>name</th><th>author</th><th>date</th><th>sotrudnik</th><th>srok</th><th>chitatel</th></tr>";
+        echo "<br><br><table><tr><th>id</th><th>id_book</th><th>date</th><th>id_sotrudnik</th><th>srok</th><th>id_chitatel</th></tr>";
         foreach ($result_array as $result_row) {
             echo "<tr>";
             echo "<td>" . $result_row["id"] . "</td>";
-            echo "<td>" . $result_row["name"] . "</td>";
-            echo "<td>" . $result_row["author"] . "</td>";
+            echo "<td>" . $result_row["id_book"] . "</td>";
             echo "<td>" . $result_row["date"] . "</td>";
-            echo "<td>" . $result_row["sotrudnik"] . "</td>";
+            echo "<td>" . $result_row["id_sotrudnik"] . "</td>";
             echo "<td>" . $result_row["srok"] . "</td>";
-            echo "<td>" . $result_row["chitatel"] . "</td>";
+            echo "<td>" . $result_row["id_chitatel"] . "</td>";
             echo "</tr>";
         }
         echo "</table>";
@@ -104,19 +103,18 @@ function vidachaTable()
 
 function vidachaLink()
 {
-    if (!empty($_POST['name']) && !empty($_POST['author']) && !empty($_POST['date']) && !empty($_POST['sotrudnik']) && !empty ($_POST['srok']) && !empty ($_POST['chitatel'])) {
-        $name = $_POST['name'];
-        $author = $_POST['author'];
+    if (!empty($_POST['id_book']) && !empty($_POST['date']) && !empty($_POST['sotrudnik']) && !empty ($_POST['srok']) && !empty ($_POST['chitatel'])) {
+        $id_book = $_POST['id_book'];
         $date = $_POST['date'];
-        $sotrudnik = $_POST['sotrudnik'];
+        $sotrudnik = $_POST['id_sotrudnik'];
         $srok = $_POST['srok'];
-        $chitatel = $_POST['chitatel'];
+        $chitatel = $_POST['id_chitatel'];
         $db_table = 'vidacha';
         $mysqli = new mysqli('localhost', 'root', 'root', 'library');
         if ($mysqli->connect_error) {
             die('Ошибка : (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
         }
-        $result = $mysqli->query("INSERT INTO " . $db_table . "(name, author, date, sotrudnik, srok, chitatel) VALUES ('$name', '$author', '$date','$sotrudnik', '$srok', '$chitatel')");
+        $result = $mysqli->query("INSERT INTO " . $db_table . "(id_book, date, id_sotrudnik, srok, id_chitatel) VALUES ('$id_book', '$date','$sotrudnik', '$srok', '$chitatel')");
         if ($result == true) {
             echo "Информация занесена в базу данных";
         } else {
@@ -131,19 +129,18 @@ function vozvratTable()
     try {
     $db = new mysqli('localhost', 'root', 'root', 'library');
     $db->set_charset('utf8');
-    $sql = "SELECT id, date, name, author, sotrudnik FROM vozvrat";
+    $sql = "SELECT id, date_vozvrat, id_sotrudnik, id_vidacha FROM vozvrat";
     if(!$statement = $db->prepare($sql))
         throw new Exception($db->error);
     $statement->execute();
     $result_array = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
-        echo "<br><br><table><tr><th>id</th><th>date</th><th>name</th><th>author</th><th>sotrudnik</th></tr>";
+        echo "<br><br><table><tr><th>id</th><th>date_vozvrat</th><th>id_sotrudnik</th><th>id_vidacha</th>";
         foreach ($result_array as $result_row) {
             echo "<tr>";
             echo "<td>" . $result_row["id"] . "</td>";
-            echo "<td>" . $result_row["date"] . "</td>";
-            echo "<td>" . $result_row["name"] . "</td>";
-            echo "<td>" . $result_row["author"] . "</td>";
-            echo "<td>" . $result_row["sotrudnik"] . "</td>";
+            echo "<td>" . $result_row["date_vozvrat"] . "</td>";
+            echo "<td>" . $result_row["id_sotrudnik"] . "</td>";
+            echo "<td>" . $result_row["id_vidacha"] . "</td>";
             echo "</tr>";
         }
         echo "</table>";
@@ -155,16 +152,15 @@ function vozvratTable()
 function vozvratLink()
 {
     if (!empty($_POST['date']) && !empty($_POST['name']) && !empty($_POST['author']) && !empty($_POST['sotrudnik'])) {
-        $date = $_POST['date'];
-        $name = $_POST['name'];
-        $author = $_POST['author'];
-        $sotrudnik = $_POST['sotrudnik'];
+        $date_vozvrat = $_POST['date_vozvrat'];
+        $id_sotrudnik = $_POST['id_sotrudnik'];
+        $id_vidacha = $_POST['id_vidacha'];
         $db_table = 'vozvrat';
         $mysqli = new mysqli('localhost', 'root', 'root', 'library');
         if ($mysqli->connect_error) {
             die('Ошибка : (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
         }
-        $result = $mysqli->query("INSERT INTO " . $db_table . "(date, name, author, sotrudnik) VALUES ('$date', '$name', '$author', '$sotrudnik')");
+        $result = $mysqli->query("INSERT INTO " . $db_table . "(date_vozvrat, id_sotrudnik, id_vidacha) VALUES ('$date_vozvrat', '$id_sotrudnik', '$id_vidacha')");
         if ($result == true) {
             echo "Информация занесена в базу данных";
         } else {
@@ -180,7 +176,7 @@ function biblioLink()
         $password = $_REQUEST['password'];
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $mysqli = new mysqli('localhost', 'root', 'root', 'library');
-        $query = 'SELECT * FROM log_pass_sotrudnik WHERE login="' . $login . '" AND password="' . $password . '"';
+        $query = 'SELECT * FROM log_pass WHERE login="' . $login . '" AND password="' . $password . '"';
         $result = mysqli_query($mysqli, $query);
         $users = mysqli_fetch_assoc($result);
         if (!empty($users)) {
@@ -201,7 +197,7 @@ function authReader()
         $password = $_REQUEST['password'];
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $mysqli = new mysqli('localhost', 'root', 'root', 'library');
-        $query = 'SELECT*FROM log_pass_klient WHERE login="' . $login . '" AND password="' . $password . '"';
+        $query = 'SELECT*FROM log_pass WHERE login="' . $login . '" AND password="' . $password . '"';
         $result = mysqli_query($mysqli, $query);
         $users = mysqli_fetch_assoc($result);
         if (!empty($users)) {
@@ -221,12 +217,12 @@ function lichnyTable()
     try {
     $db = new mysqli('localhost', 'root', 'root', 'library');
     $db->set_charset('utf8');
-    $sql = "SELECT log_pass_sotrudnik.id, log_pass_sotrudnik.login, log_pass_sotrudnik.password , dannie_sotrudnik.id, dannie_sotrudnik.fio, dannie_sotrudnik.dolzhnost FROM log_pass_sotrudnik, dannie_sotrudnik where log_pass_sotrudnik.id=dannie_sotrudnik.id";
+    $sql = "SELECT log_pass.id, log_pass.login, log_pass.password , dannie_sotrudnik.id, dannie_sotrudnik.fio, dannie_sotrudnik.dolzhnost FROM log_pass, dannie_sotrudnik where log_pass.id=dannie_sotrudnik.id";
     if(!$statement = $db->prepare($sql))
         throw new Exception($db->error);
     $statement->execute();
     $result_array = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
-        echo "<table><tr><th>ID</th><th>login</th><th>password</th><th>fio</th><th>dolzhnost</th></tr>";
+        echo "<table><tr><th>id</th><th>login</th><th>password</th><th>fio</th><th>dolzhnost</th></tr>";
         foreach ($result_array as $result_row) {
             echo "<tr>";
             echo "<td>" . $result_row["id"] . "</td>";

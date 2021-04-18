@@ -14,8 +14,8 @@ echo bookLink(),vozvratTable (), vozvratLink();
 <form method="POST" action="">
     <input name="date" type="text" placeholder="Дата возврата"/>
     <input name="name" type="text" placeholder="Название книги"/>
-    <input name="author" type="text" placeholder="Автор"/>
-    <input name="sotrudnik" type="text" placeholder="Сотрудник"/>
+    <input name="author" type="text" placeholder="id сотрудника"/>
+    <input name="sotrudnik" type="text" placeholder="id выдачи"/>
     <input type="submit" value="Отправить"/>
 </form>
 </html>

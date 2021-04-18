@@ -6,10 +6,10 @@
 <?php
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $db = new mysqli('localhost','root','root','library');
-$id = $_REQUEST['log_pass_sotrudnik'];
-$select_sql = "SELECT id, login, password FROM log_pass_sotrudnik WHERE id= '$id'";
+$id = $_REQUEST['log_pass'];
+$select_sql = "SELECT id, login, password FROM log_pass WHERE id= '$id'";
 $id2 = $_REQUEST['dannie_sotrudnik'];
-$select_sql2 = "SELECT id, fio, dolzhnost FROM dannie_sotrudnik WHERE id= '$id'";
+$select_sql2 = "SELECT id, fio, dolzhnost FROM dannie_sotrudnik WHERE log_pass_id= '$id'";
 $result = mysqli_query($db, $select_sql);
 $row = mysqli_fetch_array($result);
 $result2 = mysqli_query($db, $select_sql2);

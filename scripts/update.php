@@ -7,13 +7,13 @@
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $db = new mysqli('localhost','root','root','library');
 $id=$_REQUEST['id'];
-$id2=$_REQUEST['id'];
+$id2=$_REQUEST['log_pass_id'];
 $login=trim($_REQUEST['login']);
 $password=trim($_REQUEST['password']);
 $fio=trim($_REQUEST['fio']);
 $dolzhnost=trim($_REQUEST['dolzhnost']);
-$update_sql = "UPDATE log_pass_sotrudnik SET id='$id', login='$login', password='$password' WHERE id='$id'";
-$update_sql2 = "UPDATE dannie_sotrudnik SET id='$id2', fio='$fio', dolzhnost='$dolzhnost' WHERE id='$id'";
+$update_sql = "UPDATE log_pass SET id='$id', login='$login', password='$password' WHERE id='$id'";
+$update_sql2 = "UPDATE dannie_sotrudnik SET log_pass_id='$id2', fio='$fio', dolzhnost='$dolzhnost' WHERE log_pass_id='$id'";
 mysqli_query($db, $update_sql) or die("Ошибка вставки" . mysqli_error());
 mysqli_query ($db, $update_sql2) or die("Ошибка вставки" . mysqli_error());
 echo '<p>Запись успешно обновлена!</p>';
