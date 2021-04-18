@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 30 2021 г., 18:47
+-- Время создания: Апр 18 2021 г., 23:13
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -58,20 +58,21 @@ INSERT INTO `add_book` (`id`, `name`, `artikul`, `date`, `author`) VALUES
 CREATE TABLE `dannie_klient` (
   `id` int(100) NOT NULL,
   `fio` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `passport` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
+  `passport` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `log_pass_id` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `dannie_klient`
 --
 
-INSERT INTO `dannie_klient` (`id`, `fio`, `passport`) VALUES
-(3, 'Иванов Пётр Иванович', '2505543345'),
-(5, 'Иванова Мария Андреевна', '2509123456'),
-(6, 'Симеонов Андрей Петрович', '3456678909'),
-(7, 'Павлов Антон Анатольевич', '1234567890'),
-(8, 'Варкова Анна Владимировна', '4567890123'),
-(19, 'Петров Борис Викторович', '1234567891');
+INSERT INTO `dannie_klient` (`id`, `fio`, `passport`, `log_pass_id`) VALUES
+(6, 'Иванов Пётр Иванович', '2505543345', 6),
+(7, 'Иванова Мария Андреевна', '2509123456', 7),
+(8, 'Симеонов Андрей Петрович', '3456678909', 8),
+(9, 'Павлов Антон Анатольевич', '1234567890', 9),
+(10, 'Варкова Анна Владимировна', '4567890123', 10),
+(11, 'Петров Борис Викторович', '1234567891', 11);
 
 -- --------------------------------------------------------
 
@@ -80,21 +81,22 @@ INSERT INTO `dannie_klient` (`id`, `fio`, `passport`) VALUES
 --
 
 CREATE TABLE `dannie_sotrudnik` (
-  `id` int(110) NOT NULL,
-  `fio` varchar(110) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dolzhnost` varchar(110) COLLATE utf8mb4_unicode_ci NOT NULL
+  `id` int(100) NOT NULL,
+  `fio` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dolzhnost` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `log_pass_id` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `dannie_sotrudnik`
 --
 
-INSERT INTO `dannie_sotrudnik` (`id`, `fio`, `dolzhnost`) VALUES
-(1, 'Петрова Лариса Сергеевна', 'Библиотекарь'),
-(2, 'Петрова Лариса Ивановна', 'Архивариус'),
-(3, 'Смирнов Иван Васильевич', 'Архивариус'),
-(4, 'Петраков Андрей Петрович', 'Директор'),
-(5, 'Петра Лариса Ивановна', 'Библиотекарь');
+INSERT INTO `dannie_sotrudnik` (`id`, `fio`, `dolzhnost`, `log_pass_id`) VALUES
+(1, 'Петрова Лариса Сергеевна', 'Библиотекарь', 1),
+(2, 'Петрова Лариса Ивановна', 'Архивариус', 2),
+(3, 'Смирнов Иван Васильевич', 'Архивариус', 3),
+(4, 'Петраков Андрей Петрович', 'Директор', 4),
+(5, 'Петра Лариса Ивановна', 'Библиотекарь', 5);
 
 -- --------------------------------------------------------
 
@@ -105,55 +107,38 @@ INSERT INTO `dannie_sotrudnik` (`id`, `fio`, `dolzhnost`) VALUES
 CREATE TABLE `files` (
   `id` int(100) NOT NULL,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `path` blob NOT NULL
+  `path` blob NOT NULL,
+  `id_book` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `log_pass_klient`
+-- Структура таблицы `log_pass`
 --
 
-CREATE TABLE `log_pass_klient` (
-  `id` int(100) NOT NULL,
-  `login` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `log_pass_klient`
---
-
-INSERT INTO `log_pass_klient` (`id`, `login`, `password`) VALUES
-(3, 'Petya', '111'),
-(5, 'Mary', '111'),
-(6, 'Andry', '789'),
-(7, 'Anton', '899'),
-(8, 'Anna', '345'),
-(19, 'Petya', 't6y');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `log_pass_sotrudnik`
---
-
-CREATE TABLE `log_pass_sotrudnik` (
+CREATE TABLE `log_pass` (
   `id` int(110) NOT NULL,
   `login` varchar(110) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(110) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп данных таблицы `log_pass_sotrudnik`
+-- Дамп данных таблицы `log_pass`
 --
 
-INSERT INTO `log_pass_sotrudnik` (`id`, `login`, `password`) VALUES
+INSERT INTO `log_pass` (`id`, `login`, `password`) VALUES
 (1, 'user2', '963'),
 (2, 'user1', '11122'),
 (3, 'user3', '963'),
 (4, 'user4', '158'),
-(5, 'user11', '111');
+(5, 'user11', '111'),
+(6, 'Petya', '111'),
+(7, 'Mary', '111'),
+(8, 'Andry', '789'),
+(9, 'Anton', '899'),
+(10, 'Anna', '345'),
+(11, 'Petya', 't6y');
 
 -- --------------------------------------------------------
 
@@ -163,23 +148,22 @@ INSERT INTO `log_pass_sotrudnik` (`id`, `login`, `password`) VALUES
 
 CREATE TABLE `vidacha` (
   `id` int(110) NOT NULL,
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `author` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_book` int(100) NOT NULL,
   `date` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sotrudnik` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `srok` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `chitatel` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
+  `id_sotrudnik` int(100) NOT NULL,
+  `srok` int(40) NOT NULL,
+  `id_chitatel` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `vidacha`
 --
 
-INSERT INTO `vidacha` (`id`, `name`, `author`, `date`, `sotrudnik`, `srok`, `chitatel`) VALUES
-(1, 'Война и мир', 'Л.Н.Толстой', '17.03.2021', 'Петрова Лариса Сергеевна', '14 дней', 'Иванов Пётр Иванович'),
-(8, 'Мёртвые души', 'Н.В.Гоголь', '17.03.2021', 'Петрова Лариса Сергеевна', '14 дней', 'Иванов Пётр Иванович'),
-(11, 'Руслан и Людмила', 'А.С.Пушкин', '17.03.2021', 'Петрова Лариса Сергеевна', '14 дней', 'Иванова Мария Андреевна'),
-(13, 'Старик и море', 'Э.Хемингуэй', '10.01.2021', 'Петрова Лариса Сергеевна', '14 дней', 'Иванова Мария Андреевна');
+INSERT INTO `vidacha` (`id`, `id_book`, `date`, `id_sotrudnik`, `srok`, `id_chitatel`) VALUES
+(1, 1, '17.03.2021', 1, 14, 6),
+(8, 2, '17.03.2021', 1, 14, 7),
+(11, 3, '17.03.2021', 1, 14, 8),
+(13, 5, '10.01.2021', 1, 14, 9);
 
 -- --------------------------------------------------------
 
@@ -189,21 +173,20 @@ INSERT INTO `vidacha` (`id`, `name`, `author`, `date`, `sotrudnik`, `srok`, `chi
 
 CREATE TABLE `vozvrat` (
   `id` int(100) NOT NULL,
-  `date` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `author` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sotrudnik` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
+  `date_vozvrat` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_sotrudnik` int(100) NOT NULL,
+  `id_vidacha` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `vozvrat`
 --
 
-INSERT INTO `vozvrat` (`id`, `date`, `name`, `author`, `sotrudnik`) VALUES
-(5, '30.03.2021', 'Руслан и Людмила', 'А.С.Пушкин', 'Петрова Лариса Сергеевна'),
-(7, '13.02.2021', 'Война и мир', 'Л.Н.Толстой', 'Петрова Лариса Сергеевна'),
-(8, '30.03.2021', 'Руслан и Людмила', 'А.С.Пушкин', 'Петрова Лариса Сергеевна'),
-(9, '21.01.2021', 'Старик и море', 'Э.Хемингуэй', 'Петрова Лариса Сергеевна');
+INSERT INTO `vozvrat` (`id`, `date_vozvrat`, `id_sotrudnik`, `id_vidacha`) VALUES
+(5, '30.03.2021', 1, 1),
+(7, '13.02.2021', 1, 8),
+(8, '30.03.2021', 1, 11),
+(9, '21.01.2021', 1, 13);
 
 --
 -- Индексы сохранённых таблиц
@@ -219,43 +202,49 @@ ALTER TABLE `add_book`
 -- Индексы таблицы `dannie_klient`
 --
 ALTER TABLE `dannie_klient`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_3` (`id`),
+  ADD KEY `id` (`id`),
+  ADD KEY `id_2` (`log_pass_id`);
 
 --
 -- Индексы таблицы `dannie_sotrudnik`
 --
 ALTER TABLE `dannie_sotrudnik`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_sotrudnik` (`id`),
+  ADD KEY `id_sotrudnik_2` (`id`),
+  ADD KEY `id` (`log_pass_id`);
 
 --
 -- Индексы таблицы `files`
 --
 ALTER TABLE `files`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_book` (`id_book`);
 
 --
--- Индексы таблицы `log_pass_klient`
+-- Индексы таблицы `log_pass`
 --
-ALTER TABLE `log_pass_klient`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `log_pass_sotrudnik`
---
-ALTER TABLE `log_pass_sotrudnik`
+ALTER TABLE `log_pass`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `vidacha`
 --
 ALTER TABLE `vidacha`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_sotrudnik` (`id_sotrudnik`),
+  ADD KEY `id_chitatel` (`id_chitatel`),
+  ADD KEY `id_book` (`id_book`);
 
 --
 -- Индексы таблицы `vozvrat`
 --
 ALTER TABLE `vozvrat`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_sotrudnik` (`id_sotrudnik`),
+  ADD KEY `id_vidacha` (`id_vidacha`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
@@ -268,34 +257,16 @@ ALTER TABLE `add_book`
   MODIFY `id` int(110) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT для таблицы `dannie_klient`
---
-ALTER TABLE `dannie_klient`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT для таблицы `dannie_sotrudnik`
---
-ALTER TABLE `dannie_sotrudnik`
-  MODIFY `id` int(110) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT для таблицы `files`
 --
 ALTER TABLE `files`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `log_pass_klient`
+-- AUTO_INCREMENT для таблицы `log_pass`
 --
-ALTER TABLE `log_pass_klient`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT для таблицы `log_pass_sotrudnik`
---
-ALTER TABLE `log_pass_sotrudnik`
-  MODIFY `id` int(110) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `log_pass`
+  MODIFY `id` int(110) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT для таблицы `vidacha`
@@ -317,7 +288,34 @@ ALTER TABLE `vozvrat`
 -- Ограничения внешнего ключа таблицы `dannie_klient`
 --
 ALTER TABLE `dannie_klient`
-  ADD CONSTRAINT `dannie_klient_ibfk_1` FOREIGN KEY (`id`) REFERENCES `log_pass_klient` (`id`);
+  ADD CONSTRAINT `dannie_klient_ibfk_1` FOREIGN KEY (`log_pass_id`) REFERENCES `log_pass` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `dannie_sotrudnik`
+--
+ALTER TABLE `dannie_sotrudnik`
+  ADD CONSTRAINT `dannie_sotrudnik_ibfk_1` FOREIGN KEY (`log_pass_id`) REFERENCES `log_pass` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `files`
+--
+ALTER TABLE `files`
+  ADD CONSTRAINT `files_ibfk_1` FOREIGN KEY (`id_book`) REFERENCES `add_book` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `vidacha`
+--
+ALTER TABLE `vidacha`
+  ADD CONSTRAINT `vidacha_ibfk_3` FOREIGN KEY (`id_book`) REFERENCES `add_book` (`id`),
+  ADD CONSTRAINT `vidacha_ibfk_4` FOREIGN KEY (`id_chitatel`) REFERENCES `dannie_klient` (`log_pass_id`),
+  ADD CONSTRAINT `vidacha_ibfk_5` FOREIGN KEY (`id_sotrudnik`) REFERENCES `dannie_sotrudnik` (`log_pass_id`);
+
+--
+-- Ограничения внешнего ключа таблицы `vozvrat`
+--
+ALTER TABLE `vozvrat`
+  ADD CONSTRAINT `vozvrat_ibfk_1` FOREIGN KEY (`id_vidacha`) REFERENCES `vidacha` (`id`),
+  ADD CONSTRAINT `vozvrat_ibfk_2` FOREIGN KEY (`id_sotrudnik`) REFERENCES `dannie_sotrudnik` (`log_pass_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
